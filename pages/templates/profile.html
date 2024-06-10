@@ -1,0 +1,75 @@
+{% extends 'pages_base.html' %}
+
+{% load static %}
+
+{% block extra_head %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+
+{% endblock %}
+
+{% block extra_js %}
+
+  <script src="{% static 'js/profile.js' %}"></script>
+
+{% endblock %}
+
+{% block content %}
+ <h1>Profile</h1>
+
+  <form method="post" id="edit-user-info">
+
+    {% csrf_token %}
+
+    <div>
+
+      <label for="first_name">First Name:</label>
+
+      <input type="text" id="first_name" name="first_name" value="{{ first_name }}">
+
+    </div>
+
+    <div>
+
+      <label for="last_name">Last Name:</label>
+
+      <input type="text" id="last_name" name="last_name" value="{{ last_name }}">
+
+    </div>
+
+    <div>
+
+      <label for="username">Username:</label>
+
+      <input type="text" id="username" name="username" value="{{ user.username }}">
+
+    </div>
+
+    <div>
+
+      <label for="bio">Bio:</label>
+
+      {% if bio is None %}
+       <textarea id="bio" name="bio" placeholder="Tell us about yourself"></textarea>
+       {% else %}
+       <textarea id="bio" name="bio">{{ bio }}</textarea>
+      {% endif %}
+     <p id=counter></p>
+    </div>
+
+    <div>
+
+      <button type="submit">Save Changes</button>
+
+      <div>
+       
+       <button id="change-password-button">Change Password</button>
+       
+     </div>
+      
+    </div>
+
+   </form>
+   
+
+{% endblock %}

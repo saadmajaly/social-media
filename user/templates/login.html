@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+{% csrf_token %}
+<div class="centered-form">
+  <form id="myForm" action="/auth/" method="POST">
+    {% csrf_token %}
+    <label for="username" class="user">Username:</label>
+    <input type="text" name="userName" id="username" class="user">
+    <br>
+    <label for="password" class="pass">Password:</label>
+    <input type="password" name="password" id="password" class="pass">
+    <br>
+    <button type="submit" id="firstbtn">Login</button>
+    <button type="button" id="secbtn" > <a href="/signup/">Create New Account</a></button>
+  </form>
+    <h1 id="usernameError" style="color:red;">{{ error }}</h1>
+</div>
+{% endblock %}

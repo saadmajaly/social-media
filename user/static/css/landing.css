@@ -1,0 +1,113 @@
+*{
+ margin: 0;
+}
+header{
+ background-color: black;
+ color: white;
+ margin: 0;
+ padding: 1%;
+}
+header h1{
+ font-family: 'Sofia';
+ display: inline;
+}
+
+header p{
+ display: inline;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #3e8e41;
+}
+.centered-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f2f2f2;
+}
+
+.centered-form form {
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.centered-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  width: auto;
+  background-color: white;
+}
+
+.centered-form input[type="text"],
+.centered-form input[type="email"],
+.centered-form input[type="password"] {
+  width: 93%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.centered-form .user,
+.centered-form .fname,
+.centered-form .lname,
+.centered-form .em,
+.centered-form .pass {
+  background-color: #f2f2f2;
+}
+
+.centered-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.centered-form button:hover {
+  background-color: #333;
+}
+ .brr {
+  display: none;
+ }
+#secbtn a{
+ color: white;
+ text-decoration: none;
+}
+
+.logbtn{
+  display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}

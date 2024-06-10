@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="{% static 'css/base.css' %}">
+ <title>Document</title>
+</head>
+<header>
+  <div class="dropdown">
+  <div class="profile-circle">
+
+      <img class= "dropbtn" src="{% static 'img/profile.jpg' %}" alt="Profile Image">
+
+  </div>
+  <div class="dropdown-content">
+    <a href="{% url 'profile' username=user_name %}">Profile</a>
+    <a href="#">Settings</a>
+    <a href="/logout/">Logout</a>
+  </div>
+</div> 
+  <nav>
+    <ul>
+      <li><a href="/pages/home/" class="active">Home</a></li>
+      <li><a href="/pages/newpost/">New post</a></li>
+      <li><a href="/pages/messages/">Messages</a></li>
+       
+    </ul>
+  </nav>
+</header>
+{% block content %}
+ 
+{% endblock %}
+ 
+</html>
