@@ -9,6 +9,6 @@ def create_post(request):
 def save_post(request):
     content = request.POST['content']
     user=User.objects.get(username=request.user.username)
-    newpost = post(content=content,user=user, likes = 0)
+    newpost = post(content=content,user=user)
     newpost.save()
     return redirect("/pages/home")

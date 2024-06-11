@@ -15,61 +15,44 @@
 {% endblock %}
 
 {% block content %}
- <h1>Profile</h1>
+ <div class="container-fluid">
+  <div class="row m-3">
+    <img src="{% static 'img/profile.jpg' %}" alt="" class="col-2" style="width: 12.5vh; height: 10vh;">
+    <h2 class="col-2">{{ user_name }}</h2>
+    <h2 class="col-md-3"><b>{{ followers }}</b> followers</h2>
+    <h2 class="col-md-3"><b>{{ following }}</b> following</h2>
 
-  <form method="post" id="edit-user-info">
+  </div>
+  <div class="row m-3">
+    <h2>{{ first_name }} {{ last_name }}</h2>
+    <a href="" class="btn btn-primary col-2">Follow</a>
+    <a href="#" class="btn btn-primary col-2 ms-2">Message</a>
+    {% if owner %}
+    <a href="{% url "edit_profile" username=user_name %}" class="btn btn-dark col-2 ms-2">Edit</a>
+    {% endif %}
+  </div>
+  {% if bio %}
+  <div class="row m-3">
+    <p>{{bio}}</p>
+  </div>
+  {% endif %}
+  {% if posts %}
+  <h3 class="m-3">Posts:</h3>
+  {% endif %}
+  {% for post in posts %}
+    <div class="col-md-9 m-4 border border-primary p-3 rounded">
+      <p class="fs-2">{{post.content}}</p>
+      <div class="row">
+        <p class="fs-6 col-3">{{ post.likes_counter }} Likes</p>
+        <p class="fs-6 col-5">{{ post.comments_counter }} Comments</p>
 
-    {% csrf_token %}
-
-    <div>
-
-      <label for="first_name">First Name:</label>
-
-      <input type="text" id="first_name" name="first_name" value="{{ first_name }}">
-
+      </div>
     </div>
+  {% empty %}
+  <div class="row m-3">
+    <h3>No posts yet</h3>
+  </div>
+  {% endfor %}
 
-    <div>
-
-      <label for="last_name">Last Name:</label>
-
-      <input type="text" id="last_name" name="last_name" value="{{ last_name }}">
-
-    </div>
-
-    <div>
-
-      <label for="username">Username:</label>
-
-      <input type="text" id="username" name="username" value="{{ user.username }}">
-
-    </div>
-
-    <div>
-
-      <label for="bio">Bio:</label>
-
-      {% if bio is None %}
-       <textarea id="bio" name="bio" placeholder="Tell us about yourself"></textarea>
-       {% else %}
-       <textarea id="bio" name="bio">{{ bio }}</textarea>
-      {% endif %}
-     <p id=counter></p>
-    </div>
-
-    <div>
-
-      <button type="submit">Save Changes</button>
-
-      <div>
-       
-       <button id="change-password-button">Change Password</button>
-       
-     </div>
-      
-    </div>
-
-   </form>
-   
-
+ </div>
 {% endblock %}

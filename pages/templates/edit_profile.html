@@ -1,0 +1,69 @@
+  {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
+  </head>
+  <body>
+   
+   <form method="post" class="container" action="/pages/profile/save">
+ 
+     {% csrf_token %}
+
+     <div class="row m-2">
+ 
+       <label for="first_name" class="form-label col-md-2">First Name:</label>
+ 
+       <input type="text" name="first_name" value="{{ first_name }}" class="col-md-5 form-control">
+ 
+     </div>
+ 
+     <div class="row m-2">
+ 
+       <label for="last_name" class="form-label">Last Name:</label>
+ 
+       <input type="text" id="last_name" name="last_name" value="{{ last_name }}" class="form-control">
+ 
+     </div>
+ 
+     <div class="row m-2">
+ 
+       <label for="username" class="form-label">Username:</label>
+ 
+       <input class="form-control" type="text" id="username" name="username" value="{{ user.username }}">
+       {% if error %}
+       <h3> error: {{ error }} </h3>
+       {% endif %}
+  
+     </div>
+ 
+     <div class="row m-2">
+ 
+       <label for="bio" class="form-label">Bio:</label>
+ 
+       {% if bio is None %}
+        <textarea id="bio" name="bio" placeholder="Tell us about yourself" class="form-control" style="resize: none;"></textarea>
+        {% else %}
+        <textarea id="bio" name="bio" class="form-label" style="resize: none;">{{ bio }}</textarea>
+       {% endif %}
+      <p id=counter></p>
+     </div>
+ 
+     <div class="row m-2">
+ 
+       <button type="submit" class="btn btn-primary col-md-2">Save Changes</button>
+ 
+       
+        
+        <a id="change-password-button" class="btn btn-dark col-md-2 ms-2">Change Password</a>
+        
+      
+       
+     </div>
+ 
+    </form>
+  </body>
+  </html>

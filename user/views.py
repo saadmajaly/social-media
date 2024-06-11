@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from pages.models import profile
+from .models import Followers
 
 
 # landing page
@@ -34,6 +35,9 @@ def signup(request):
         )
         newu.set_password(password)
         newu.save()
+        followers = Followers(user=newu)
+        followers.save()
+
     except:
         context={
             "usern":user_name,

@@ -1,10 +1,11 @@
 {% extends "post_base.html" %}
 
 {% block content %}
- <form class="container align-items-center col-5">
+ <form class="container align-items-center col-5" action="save/" method="post">
+  {% csrf_token %}
   <div class="row">
     <textarea name="content" id="content" class="form-control mt-3 " style="resize: none; height: 20vh;" placeholder="What's on your mind?"></textarea>
-    <a href="" class="btn btn-dark col-3 mt-3">Post</a>
+    <button type="submit" class="btn btn-dark col-3 mt-3">Post</button>
    </div>
  </form>
 {% endblock %}
